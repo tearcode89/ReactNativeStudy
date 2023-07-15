@@ -1,0 +1,14 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+modules.xml
+ReactNativeStudy.iml
+vcs.xml
+.DS_Store
+codStyles
+Project.xml
+.idea
+.idea/*
+codeStyleConfig.xml
