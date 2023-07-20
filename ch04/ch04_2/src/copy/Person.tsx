@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import type {FC} from 'react'
 import {View, Text, Image, Alert} from 'react-native';
 import {MD2Colors as Colors} from "react-native-paper";
@@ -14,12 +14,13 @@ export type PersonProps = {
     person: D.IPerson
 }
 
-const avatarPressed = () => Alert.alert('아바타가 눌렸어요')
-const deletePressed = () => Alert.alert('삭제가 눌렸어요')
-const countIconPressed = (name: string) => () => Alert.alert(`${name}가(이) 눌렸어요`)
-
-
+// prettier-ignore
 const Person: FC<PersonProps> = ({person}) => {
+    const avatarPressed = useCallback(() => Alert.alert('아바타가 눌렸어요'), [])
+    const deletePressed = useCallback(() => Alert.alert('삭제가 눌렸어요'), [])
+    const countIconPressed = useCallback((name: string) => () =>
+        Alert.alert(`${name}가(이) 눌렸어요`), [])
+
     return (
         <View style={[styles.view]}>
             <View style={[styles.leftView]}>
@@ -57,5 +58,4 @@ const Person: FC<PersonProps> = ({person}) => {
         </View>
     )
 }
-
 export default Person;
